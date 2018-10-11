@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 352.0, 296.0, 924.0, 510.0 ],
+		"rect" : [ 83.0, 98.0, 924.0, 510.0 ],
 		"bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"editing_bgcolor" : [ 0.239216, 0.254902, 0.278431, 1.0 ],
 		"bglocked" : 0,
@@ -73,7 +73,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 1882.0, 1098.0, 50.0, 24.0 ],
 					"style" : "",
-					"text" : "49"
+					"text" : "30"
 				}
 
 			}
@@ -2536,9 +2536,9 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-127" : [ "number[1]", "number", 0 ],
 			"obj-82" : [ "live.text[12]", "live.text", 0 ],
-			"obj-77" : [ "live.text[13]", "live.text", 0 ],
-			"obj-127" : [ "number[1]", "number", 0 ]
+			"obj-77" : [ "live.text[13]", "live.text", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
@@ -2596,11 +2596,11 @@
 , 			{
 				"name" : "tatarism",
 				"default" : 				{
+					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textcolor_inverse" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"bgcolor" : [ 0.19771, 0.188048, 0.201856, 1.0 ],
-					"fontname" : [ "Futura Medium" ],
 					"elementcolor" : [ 0.589653, 0.589635, 0.589645, 1.0 ],
-					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
 					"color" : [ 0.701961, 0.415686, 0.886275, 1.0 ]
 				}
 ,
