@@ -4,7 +4,7 @@ script.py input_dir  output_dir
 '''
 import subprocess, os, sys
 
-filetypes = ('.mp3','.wav','.ogg','.flv', 'aif','.aiff')
+filetypes = ('.mp3','.wav','.ogg','.flv','.aif')
 covertto = '.wav'
 
 def main():

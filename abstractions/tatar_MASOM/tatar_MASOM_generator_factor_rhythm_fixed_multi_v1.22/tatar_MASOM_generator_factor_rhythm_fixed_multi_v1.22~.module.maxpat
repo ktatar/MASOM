@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 7,
 			"minor" : 3,
-			"revision" : 5,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,20 +40,6 @@
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
 				"box" : 				{
-					"comment" : "",
-					"id" : "obj-1",
-					"index" : 0,
-					"maxclass" : "outlet",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 368.0, 430.0, 30.0, 30.0 ],
-					"presentation_rect" : [ 371.333313, 434.0, 0.0, 0.0 ],
-					"style" : ""
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"annotation" : "MASOM",
 					"args" : [ "#1" ],
 					"bgmode" : 0,
@@ -64,11 +50,10 @@
 					"id" : "obj-3",
 					"lockeddragscroll" : 0,
 					"maxclass" : "bpatcher",
-					"name" : "tatar_MASOM_generator_VMM_rhythm_fixed_v1.30~.view.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"name" : "tatar_MASOM_factor_rhythm_fixed_v1.22~.view.maxpat",
+					"numinlets" : 0,
+					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "" ],
 					"patching_rect" : [ 0.0, -3.0, 600.0, 315.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ -1.0, -2.0, 600.0, 315.0 ],
@@ -84,7 +69,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 250.333328, 437.0, 30.0, 30.0 ],
+					"patching_rect" : [ 196.333328, 442.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -97,7 +82,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 132.666672, 437.0, 30.0, 30.0 ],
+					"patching_rect" : [ 105.666664, 442.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -111,6 +96,20 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 15.0, 442.0, 30.0, 30.0 ],
+					"style" : ""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "",
+					"id" : "obj-42",
+					"index" : 0,
+					"maxclass" : "inlet",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 287.0, 340.0, 30.0, 30.0 ],
 					"style" : ""
 				}
 
@@ -134,24 +133,17 @@
 					"annotation" : "MASOM:Musical Agent based on Self-organized Map",
 					"id" : "obj-38",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 4,
-					"outlettype" : [ "signal", "signal", "", "" ],
-					"patching_rect" : [ 15.0, 392.0, 372.0, 24.0 ],
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 15.0, 392.0, 312.0, 24.0 ],
 					"style" : "",
-					"text" : "tatar_MASOM_generator_VMM_rhythm_fixed_v1.30~.model #1"
+					"text" : "tatar_MASOM_factor_rhythm_fixed_v1.22~.model #1"
 				}
 
 			}
  ],
 		"lines" : [ 			{
-				"patchline" : 				{
-					"destination" : [ "obj-1", 0 ],
-					"source" : [ "obj-38", 3 ]
-				}
-
-			}
-, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-43", 0 ],
 					"source" : [ "obj-38", 2 ]
@@ -179,103 +171,29 @@
 				}
 
 			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-38", 1 ],
+					"source" : [ "obj-42", 0 ]
+				}
+
+			}
  ],
 		"parameters" : 		{
-			"obj-3::obj-53" : [ "number[13]", "number", 0 ],
-			"obj-3::obj-82" : [ "live.text[12]", "live.text", 0 ],
-			"obj-38::obj-53" : [ "number[14]", "number", 0 ],
-			"obj-3::obj-80" : [ "live.button", "live.button", 0 ],
-			"obj-3::obj-77" : [ "live.text[13]", "live.text", 0 ]
+
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "tatar_MASOM_generator_VMM_rhythm_fixed_v1.30~.model.maxpat",
-				"bootpath" : "~/owncloud_westgrid/MAX/Libraries/libraryK/jamoma/tatar_MASOM/MASOM_v1.3/tatar_MASOM_generator_VMM_rhythm_fixed_v1.30",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "k_MASOM_factor_rhythm_fixed_poly_v1.01~.maxpat",
-				"bootpath" : "~/owncloud_westgrid/MAX/Libraries/libraryK/jamoma/old-k/k_MASOM_factor_rhythm_fixed_v1.01",
-				"patcherrelativepath" : "../../../old-k/k_MASOM_factor_rhythm_fixed_v1.01",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "tatar_MASOM_generator_VMM_rhythm_fixed_v1.30~.view.maxpat",
-				"bootpath" : "~/owncloud_westgrid/MAX/Libraries/libraryK/jamoma/tatar_MASOM/MASOM_v1.3/tatar_MASOM_generator_VMM_rhythm_fixed_v1.30",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "j.out~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.model.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "sadam.stat.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.return.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.parameter.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.message.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.out.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.receive.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.send.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.remote.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.init.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.view.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.ui.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "j.receive~.mxo",
-				"type" : "iLaX"
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "tatarism",
 				"default" : 				{
-					"fontname" : [ "Futura Medium" ],
-					"color" : [ 0.701961, 0.415686, 0.886275, 1.0 ],
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ],
 					"textcolor_inverse" : [ 0.862745, 0.870588, 0.878431, 1.0 ],
 					"bgcolor" : [ 0.19771, 0.188048, 0.201856, 1.0 ],
-					"elementcolor" : [ 0.589653, 0.589635, 0.589645, 1.0 ]
+					"elementcolor" : [ 0.589653, 0.589635, 0.589645, 1.0 ],
+					"fontname" : [ "Futura Medium" ],
+					"color" : [ 0.701961, 0.415686, 0.886275, 1.0 ]
 				}
 ,
 				"parentstyle" : "",
