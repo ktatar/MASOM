@@ -7,7 +7,7 @@ Make sure abstractions folder is in your MAX file path list. For questions, cont
 Install following MAX packages:
 
 - ejies 
-- jamoma 
+- jasch objects 
 - ml.star 
 - sadam (for stats) 
 - MuBu for MAX 
