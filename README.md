@@ -36,15 +36,47 @@ Audacity allows you to create a macro that goes through all your files to conver
 
 - Open the Traininig\MASOM-Learning.maxpat
 
-We will follow the steps in the given order in this Max patch.
+We will follow the steps in the given order in this Max patch. Please find extra details and explanations of each step below. 
 
 ## 1- Import your dataset
 
-Drop your agent folder to the area in the step 1. You should see the Agent folder path under step 1 updated with your folder name. 
+Drop your dataset_folder to the area in the step 1. You should see the dataset_folder path under step 1 updated with your folder name. 
 
 ## 2- Segmentation and Feature Extraction
 
-TBD
+This second part goes through each .wav file in your audio folder and creates data files with the segments, and the audio features of the segments. The patch saves the data in the audio folder, as a text file in a folder with the same name of the .wav file. In the text file, each line is the features of a segment in the format, 
+
+Segment-number, File-name Segment-start Segment-duration Valence Arousal Loudness-mean Loudness-std MFCC-mean(13 entries) MFCC-std(13 entries) Perceptual-Spectral-Decrease-mean Perceptual-Spectral-Decrease-std
+
+To run this section, 
+- Set your minimum and maximum segment duration in the UI. The segmentation is automatic; however, we can still set the minimum and maximum durations. 
+- Press the start button. This will take some time, depending on how many files you have. 
+
+**Debugging:** The patch goes through all .wav files one by one. Sometimes, you may end up with a problematic audio file and the algorithm may get stuck. In my experience, sometimes MuBu cannot load a file with foreign letters in the name. Also, the format of the audio files may cause an issue. In those cases where there is an issue with a file, the patch would get stuck. Check the filename under the overall progress bar to have an idea of which file causes the issue. You can fix or remove the problematic file, and continue the segmentation from where it was by pressing the continue button. Changing the index number also starts the training from the file with the index number in the coll list. You can change the index number as you like, and press continue to start the segmentation from any file you like. 
+
+## 3 - Concatenate the data
+
+This step first creates a folder called "data" in your dataset_folder. Then, this step concatenates all data files in your audio folder into one text file with the name data-concatenated.txt. 
+
+- Press the start button. 
+
+To confirm if this step was successful, check if data-concatenated.txt exists in the dataset_folder\data.
+
+## 4 - Self-Organizing Map Training
+
+MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes around 30 minutes to train an SOM on 10000 audio segments. This step is the most computationally expensive part of the training; hence, expect this step to take some time.
+
+- (A) We first initiate the parameters of SOM. 
+- (B) You don't neccessarily need to do anything in this section since all parameters in this section are set to a default number with the initiate button in step (A). You can change the SOM and training parameters if you would like: 
+  - Epochs: You can change the number of epoch of the training. An epoch goes through the dataset for training once. The default is 1000 epochs. 
+  - Size of the SOM: SOM map is a square, 2D map in this implementation. The initiate button automatically creates a map that aims to, total number of SOM nodes = total number of segments / 6; hence, approximating 6 sounds per cluster. In my experience, this was a good ratio that gave the least amount of SOM nodes with no sounds after the training. Still, the interface allows you to set the SOM size to any number you like. 
+  - Neighborhood divider: SOM training expects a neighborhood parameter. When a node is updated during the SOM training, its neighbooring nodes are also updated with a fraction of the original update amount. The update amount decreases as you move further from the initial node. The neighborhood divider parameter sets the initial neighboorhood amount. During training, the neighborhood is linearly decreasing to 0 as the training progresses.
+  
+  
+
+
+
+# Publications
 
 If you would like to cite this work, please consider citing the following papers:
 
@@ -56,6 +88,8 @@ Agents based on Self-Organizing Maps. Submitted to the Artificial Intelligence J
 - Tatar K., Pasquier P., Siu R. (2019) Audio-based Musical Artificial Intelligence and Audio-Reactive Visual Agents in Revive. Accepted to the International Computer Music Conference and New York City Electroacoustic Music Festival 2019 (ICMC-NYCEMF 2019).
 
 More info is available at: kivanctatar.com/masom
+
+This work has been supported by C
 
 
 
