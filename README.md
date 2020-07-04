@@ -36,7 +36,7 @@ Audacity allows you to create a macro that goes through all your files to conver
 
 - Open the Traininig\MASOM-Learning.maxpat
 
-We will follow the steps in the given order in this Max patch. Please find extra details and explanations of each step below. 
+We will follow the steps in the given order in this Max patch. Please find extra details and explanations of each step below. If your Max freezes at any step, please be patient and wait. Max scheduler is the most fun as it comes to procedural algorithms or loops. Even though your computer thinks that Max is not responding, it is highly likely that Max is still progressing with the training.
 
 ## 1- Import your dataset
 
@@ -54,7 +54,7 @@ To run this section,
 
 **Debugging:** The patch goes through all .wav files one by one. Sometimes, you may end up with a problematic audio file and the algorithm may get stuck. In my experience, sometimes MuBu cannot load a file with foreign letters in the name. Also, the format of the audio files may cause an issue. In those cases where there is an issue with a file, the patch would get stuck. Check the filename under the overall progress bar to have an idea of which file causes the issue. You can fix or remove the problematic file, and continue the segmentation from where it was by pressing the continue button. Changing the index number also starts the training from the file with the index number in the coll list. You can change the index number as you like, and press continue to start the segmentation from any file you like. 
 
-## 3 - Concatenate the data
+## 3- Concatenate the data
 
 This step first creates a folder called "data" in your dataset_folder. Then, this step concatenates all data files in your audio folder into one text file with the name data-concatenated.txt. 
 
@@ -62,7 +62,7 @@ This step first creates a folder called "data" in your dataset_folder. Then, thi
 
 To confirm if this step was successful, check if data-concatenated.txt exists in the dataset_folder\data.
 
-## 4 - Self-Organizing Map Training
+## 4- Self-Organizing Map Training
 
 MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes around 30 minutes to train an SOM on 10000 audio segments. This step is the most computationally expensive part of the training; hence, expect this step to take some time.
 
@@ -71,9 +71,22 @@ MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes ar
   - Epochs: You can change the number of epoch of the training. An epoch goes through the dataset for training once. The default is 1000 epochs. 
   - Size of the SOM: SOM map is a square, 2D map in this implementation. The initiate button automatically creates a map that aims to, total number of SOM nodes = total number of segments / 6; hence, approximating 6 sounds per cluster. In my experience, this was a good ratio that gave the least amount of SOM nodes with no sounds after the training. Still, the interface allows you to set the SOM size to any number you like. 
   - Neighborhood divider: SOM training expects a neighborhood parameter. When a node is updated during the SOM training, its neighbooring nodes are also updated with a fraction of the original update amount. The update amount decreases as you move further from the initial node. The neighborhood divider parameter sets the initial neighboorhood amount. During training, the neighborhood is linearly decreasing to 0 as the training progresses.
-  
-  
+- (C) Start the training. This will take some time.  
+- (D) Save everything by clicking the save button. This step is crucial, as you would loose all training if you don't save it. If all goes accordingly, you should have two more text files in your dataset_folder/data. These files are,
+  - SOM-nodes.txt: Each line in this text file is the location of an SOM node in the multidimensional feature space. The first entry, index is the SOM node ID. 
+  - stats.txt: This file also contains the feature weights and statistics that are used to train the SOM. The statistics of the dataset allow us to normalize the feature dimensions for SOM training, and mean and standard deviation calculated over the training dataset for each given feature dimension. The feature weights are fixed, and the idea behind the weights is that all MFCC features should affect the training as if they are one timbre feature. 
 
+## 5- Clustering 
+
+After the Self-Organizing Map training, we can assign each audio segment to the SOM node that is the closest to the feature vector of the segment. This is clustering, where each SOM node is an audio cluster with multiple audio segments from the training dataset. 
+
+- Press Start to generate the clusters. 
+
+This section creates clusters.txt in the dataset_folder/data. In the clusters.txt, the first number is the SOM node ID, and the rest of the numbers are the indexes of the audio segments in the data-concatenated.txt file. 
+
+## 6 - Musical Structure
+
+TBD...
 
 
 # Publications
