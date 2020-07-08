@@ -110,7 +110,7 @@ The training until this point allows you to use generative version of MASOM with
   
 =====================
 
-Keep in touch for the Variable Markov Model Max-Order versions of MASOM... The guide is upcoming...
+Keep in touch for the Variable Markov Model Max-Order versions of MASOM for interactive music systems... The guide is upcoming...
   
 
 # Publications
