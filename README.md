@@ -1,7 +1,12 @@
-# MASOM
-Musical Agent based on Self-Organizing Maps by Kıvanç Tatar
+# MASOM v2.0.0
+Musical Agent based on Self-Organizing Maps v2.0.0
+by Kıvanç Tatar
 
 For questions, contact ktatar@sfu.ca.
+
+This is a whole new version of MASOM. Hurray ╰(▔∀▔)╯
+
+In this version, you can separate the samples or audio excerpts that MASOM plays from the recordings that MASOM learns the musical structure. This version is incompatible with the previous versions of MASOM.
 
 Install following MAX packages from the package manager:
 
@@ -13,7 +18,7 @@ Install following MAX packages from the package manager:
 
 Install the following packages from the links below:
 
-- MuBu for MAX: This library is also available on Max package manager; however, it is an older version 1.9.12 that has a bug. Hence, download MuBu >= 1.9.13 from this link: https://forum.ircam.fr/projects/detail/mubu/. Move the MuBu for Max folder to Documents\Max 8\Packages
+- MuBu for MAX: This library is also available on Max package manager; however, it is an older version 1.9.12 that has a bug. Please avoid the MuBu on Max package manager, and download MuBu >= 1.9.13 from this link: https://forum.ircam.fr/projects/detail/mubu/. Move the MuBu for Max folder to Documents\Max 8\Packages
 
 - Download this repo. 
 
@@ -27,8 +32,19 @@ Restart your Max after you install all libraries and adding the path of the abst
 
 ## Preparing your audio files for training
 
-- In your dataset_folder create a folder named "audio", notice the no-caps. Inside "audio" folder, you should have your wave files for your dataset. The training accepts only .wav files (CD quality, 16-bit - 44.1 kHz) because of [MuBu](https://forum.ircam.fr/projects/detail/mubu/). If your files are in another type, you can easily convert them using Audacity:
-https://www.audacityteam.org/
+- In your dataset_folder create three folder named,
+    - audio   
+    - samples
+    - forms
+
+
+Please notice the no-caps. All these folders should have audio files in the format of .wav, 16-bit, 44.1kHz. The difference is,
+    - audio: This folder should have the recordings of yours, that you would like to use both as an audio sample library, and also as a musical form to train the sequence modelling algorithms in MASOM. In brief, this folder is for your own compositions where there is no issue of copyright infringement.
+    - samples: This folder is for individual samples, not for compositions. MASOM uses the .wav files in this folder for the playback. The files in this folder do not go through a segmentation, they are supposed to be individual sound objects. They are included in the audio memory of MASOM. However, they are not used for musical structure learning since they are just samples. 
+    - forms: This folder is for the compositions that you want to use for the musical structure learning, but you do not want MASOM to play any audio segment from these files.    
+
+MASOM dataset expects audio files in these folders. You should convert all your audio files to wav CD format in advance (.wav, 16-bit - 44.1 kHz) because of [MuBu](https://forum.ircam.fr/projects/detail/mubu/). If your files are in another type, you can easily convert them using Audacity:
+https://www.audacityteam.org/.
 
 Audacity allows you to create a macro that goes through all your files to convert them to wave files. Under the Audacity menu, go to Tools->Macros. Create a new macro with any name, and insert "Export as wav" command to your macro. The order of commands matter. You can also normalize your files if you want, by inserting a "Normalize" command before "Export as wav".
 
@@ -54,17 +70,21 @@ To run this section,
 
 **Debugging:** The patch goes through all .wav files one by one. Sometimes, you may end up with a problematic audio file and the algorithm may get stuck. In my experience, sometimes MuBu cannot load a file with foreign letters in the name. Also, the format of the audio files may cause an issue. In those cases where there is an issue with a file, the patch would get stuck. Check the filename under the overall progress bar to have an idea of which file causes the issue. You can fix or remove the problematic file, and continue the segmentation from where it was by pressing the continue button. Changing the index number also starts the training from the file with the index number in the coll list. You can change the index number as you like, and press continue to start the segmentation from any file you like. 
 
-## 3- Concatenate the data
+## 3- Feature Extraction - Samples
 
-This step first creates a folder called "data" in your dataset_folder. Then, this step concatenates all data files in your audio folder into one text file with the name data-concatenated.txt. 
+Similar to the step 2, and this section goes through the audio sample files in your samples folder to tag them with audio features. Different than step 2, this step does not apply segmentation to the audio files in the samples folder. 
+
+## 4- Concatenate the data
+
+This step first creates a folder called "data" in your dataset_folder. Then, this step concatenates all data files in your audio and samples folder into one text file with the name data-concatenated.txt. This text file becomes MASOM's sound memory. 
 
 - Press the start button. 
 
 To confirm if this step was successful, check if data-concatenated.txt exists in the dataset_folder\data.
 
-## 4- Self-Organizing Map Training
+## 5- Self-Organizing Map Training
 
-MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes around 30 minutes to train an SOM on 10000 audio segments. This step is the most computationally expensive part of the training; hence, expect this step to take some time.
+MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes around 30 minutes to train an SOM on 10000 audio segments. This step is the most computationally expensive part of the training; hence, this step may take some time.
 
 - (A) We first initiate the parameters of SOM. 
 - (B) You don't neccessarily need to do anything in this section since all parameters in this section are set to a default number with the initiate button in step (A). You can change the SOM and training parameters if you would like: 
@@ -76,19 +96,23 @@ MASOM uses a Self-Organizing Map to cluster similar sounds together. It takes ar
   - SOM-nodes.txt: Each line in this text file is the location of an SOM node in the multidimensional feature space. The first entry, index is the SOM node ID. 
   - stats.txt: This file also contains the feature weights and statistics that are used to train the SOM. The statistics of the dataset allow us to normalize the feature dimensions for SOM training, and mean and standard deviation calculated over the training dataset for each given feature dimension. The feature weights are fixed, and the idea behind the weights is that all MFCC features should affect the training as if they are one timbre feature. 
 
-## 5- Clustering 
+## 6- Clustering 
 
-After the Self-Organizing Map training, we can assign each audio segment to the SOM node that is the closest to the feature vector of the segment. This is clustering, where each SOM node is an audio cluster with multiple audio segments from the training dataset. 
+After the Self-Organizing Map training, we can assign each audio segment and sample to the SOM node that is the closest to the feature vector of the segment. This is clustering, where each SOM node is an audio cluster with multiple audio segments from the training dataset. 
 
 - Press Start to generate the clusters. 
 
 This section creates clusters.txt in the dataset_folder/data. In the clusters.txt, the first number is the SOM node ID, and the rest of the numbers are the indexes of the audio segments in the data-concatenated.txt file. 
 
-## 6 - Musical Structure
+## 7- Analyze recordings in the forms folder  
 
-After you complete all previous sections, this 6th step is rather easy. Just click the start button, and press the save button when it is done. This creates the file VMM-training-SOM-seq.txt in the agent_folder/data location. MASOM uses this file to train the statistical sequence modelling algorithms, specifically factorOracle and Variable Markov Models. 
+This section applies segmentation and audio feature extraction to the recordings in the folder "forms". MASOM require this process to create musical structure from these recordings. This algorithm of this step is almost the same as step 2.   
 
-This section converts the original songs in the training dataset to a sequence of SOM nodes. In the previous section, each audio segment is associated to an SOM node as a result of the clustering. Going back to the original songs, we use the original order of audio segments, and replace the segments with their associated SOM node numbers. This results in a representation of musical form where each number is a cluster (type) of sounds.   
+## 8 - Musical Structure
+
+After you complete all previous sections, this step is rather easy. Just click the start button, and press the save button when it is done. This creates the file VMM-training-SOM-seq.txt in the agent_folder/data location. MASOM uses this file to train the statistical sequence modelling algorithms, specifically factorOracle and Variable Markov Models. 
+
+This section converts the original songs in the training dataset to a sequence of SOM nodes. This section uses the original order of audio segments, and replace the segments with their associated SOM node numbers. This results in a representation of musical form where each number is a cluster (type) of sounds.   
 
 ========================
 
@@ -102,7 +126,7 @@ The training until this point allows you to use generative version of MASOM with
   This version is monophonic, and plays one sound after another. The sound selection is done automatically by MASOM. To run,
     1- Open the gen-FO-run-example.maxpat
     2- Drop your agent_folder to the "drop a folder here" area.
-    3- Choose a song from the menu to train the factorOracle. This training is so fast that it doesn't require save & load. 
+    3- Choose a song from the menu to train the factorOracle. This training is so fast that it doesn't require save & load. The list includes recordings in both the "audio" and "forms" folders.
     4- Press the Start button. The toggle under the start button controls a gate that stops sound selection loop. The bang next to the toggle requests Factor Oracle to suggest a new sound. This bang is clickable. The MUTE button mutes all sounds generated by the agent. Congruence is a Factor Oracle parameter that sets the probabilty of forward jumps vs. backwards jumps. 
 
 - **gen-FO-fixed-rhythm**
