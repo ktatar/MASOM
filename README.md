@@ -39,9 +39,12 @@ Restart your Max after you install all libraries and adding the path of the abst
 
 
 Please notice the no-caps. All these folders should have audio files in the format of .wav, 16-bit, 44.1kHz. The difference is,
-    - audio: This folder should have the recordings of yours, that you would like to use both as an audio sample library, and also as a musical form to train the sequence modelling algorithms in MASOM. In brief, this folder is for your own compositions where there is no issue of copyright infringement.
-    - samples: This folder is for individual samples, not for compositions. MASOM uses the .wav files in this folder for the playback. The files in this folder do not go through a segmentation, they are supposed to be individual sound objects. They are included in the audio memory of MASOM. However, they are not used for musical structure learning since they are just samples. 
-    - forms: This folder is for the compositions that you want to use for the musical structure learning, but you do not want MASOM to play any audio segment from these files.    
+
+- audio: This folder should have the recordings of yours, that you would like to use both as an audio sample library, and also as a musical form to train the sequence modelling algorithms in MASOM. In brief, this folder is for your own compositions where there is no issue of copyright infringement.
+
+- samples: This folder is for individual samples, not for compositions. MASOM uses the .wav files in this folder for the playback. The files in this folder do not go through a segmentation, they are supposed to be individual sound objects. They are included in the audio memory of MASOM. However, they are not used for musical structure learning since they are just samples. 
+
+- forms: This folder is for the compositions that you want to use for the musical structure learning, but you do not want MASOM to play any audio segment from these files.    
 
 MASOM dataset expects audio files in these folders. You should convert all your audio files to wav CD format in advance (.wav, 16-bit - 44.1 kHz) because of [MuBu](https://forum.ircam.fr/projects/detail/mubu/). If your files are in another type, you can easily convert them using Audacity:
 https://www.audacityteam.org/.
