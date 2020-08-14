@@ -51,11 +51,13 @@ https://www.audacityteam.org/.
 
 Audacity allows you to create a macro that goes through all your files to convert them to wave files. Under the Audacity menu, go to Tools->Macros. Create a new macro with any name, and insert "Export as wav" command to your macro. The order of commands matter. You can also normalize your files if you want, by inserting a "Normalize" command before "Export as wav".
 
+Before starting the MASOM learning, decide a minimum segment duration. Make sure that the audio files in the folders audio and forms are longer than the minimum segment duration to avoid errors.
+
 ## Learning 
 
 - Open the Traininig\MASOM-Learning.maxpat
 
-We will follow the steps in the given order in this Max patch. Please find extra details and explanations of each step below. If your Max freezes at any step, please be patient and wait. Max scheduler is the most fun as it comes to procedural algorithms or loops. Even though your computer thinks that Max is not responding, it is highly likely that Max is still progressing with the training.
+We will follow the steps in the given order in this Max patch. Please find extra details and explanations of each step below. If your Max freezes at any step, please be patient and wait. Max scheduler is the most fun when it comes to procedural algorithms or loops. Even though your computer thinks that Max is not responding, it is highly likely that Max is still progressing with the training.
 
 ## 1- Import your dataset
 
