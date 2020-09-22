@@ -8,9 +8,9 @@ filetypes = ('.mp3','.wav','.ogg','.flv','.aif')
 covertto = '.wav'
 
 def main():
-    print 'Number of arguments:', len(sys.argv), 'arguments.'
+    print('Number of arguments:', len(sys.argv), 'arguments.')
     if len(sys.argv) != 3:
-        print 'Number of arguments is not equal to two. Call the script as script.py input_dir  output_dir'
+        print('Number of arguments is not equal to two. Call the script as script.py input_dir  output_dir')
         sys.exit()
 
     input_dir = sys.argv[1]
