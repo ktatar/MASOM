@@ -1,5 +1,5 @@
-# MASOM v2.0.0
-Musical Agent based on Self-Organizing Maps v2.0.0
+# MASOM v2.0.2
+Musical Agent based on Self-Organizing Maps v2.0.2
 by Kıvanç Tatar
 
 For questions, contact ktatar@sfu.ca.
@@ -153,6 +153,7 @@ Keep in touch for the Variable Markov Model Max-Order versions of MASOM for inte
 
 If you would like to cite this work, please consider citing the following papers:
 
+MASOM V1 
 - Tatar, K. & Pasquier, P. (2017). MASOM: A Musical Agent Architecture based on Self-Organizing Maps, Affective Computing, and Variable Markov Models. In Proceedings of the 5th International Workshop on Musical Metacreation (MuMe 2017).
 
 - Tatar, K., Ens, J., Kraasch, J., Fan J., & Pasquier, P.A Comparison of Statistical Sequence Models in Musical
@@ -162,9 +163,14 @@ Agents based on Self-Organizing Maps. Submitted to the Artificial Intelligence J
 
 More info is available at: kivanctatar.com/masom
 
+**Acknowledgements**
 This work has been supported by the Canada Council of the Arts, the Natural Sciences and Engineering Research Council of Canada, and Social Sciences and Humanities Research Council of Canada.
 
 Ce travail est supporté par le conseil des arts du Canada, le Conseil national des sciences et de l’ingénieurie du Canada, et le Conseil national des sciences humaines et sociales du Canada.
+
+MASOM v2 is supported by Black Bag Media artist group's Canada Council for the Arts Concept to Realization grant. 
+
+MASOM v1 is created in part of Kıvanç Tatar's doctoral studies, supervised by Philippe Pasquier, Steve Dipaola, Oliver Bown, and externally reviewed by Matthew Yee-King; and funded by a doctoral scholarship from Philippe Pasquier's SSHRC Insight and NSERC Discovery grants. 
 
 
 
