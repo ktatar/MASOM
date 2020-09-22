@@ -171,8 +171,8 @@ Ce travail est supporté par le conseil des arts du Canada, le Conseil national 
 
 MASOM v2 is supported by Black Bag Media artist group's Canada Council for the Arts Concept to Realization grant. 
 
-MASOM v1 is created in part of Kıvanç Tatar's doctoral studies, supervised by Philippe Pasquier, Steve Dipaola, Oliver Bown, and externally reviewed by Matthew Yee-King; and funded by a doctoral scholarship from Philippe Pasquier's SSHRC Insight and NSERC Discovery grants. 
+MASOM v1 is created in part of Kıvanç Tatar's doctoral studies; supervised by Philippe Pasquier, Steve Dipaola, Oliver Bown, and externally reviewed by Matthew Yee-King; and funded by a doctoral scholarship from Philippe Pasquier's SSHRC Insight and NSERC Discovery grants. [Thesis](http://summit.sfu.ca/item/19665)
 
-I would like to also thank Notto J. W. Thelle, Ronald Boerson, Jianyu Fan, Jeff Ens, and Jonas Krasch for their contributions. 
+I would like to also thank Notto J. W. Thelle, Jeff Ens, Ronald Boerson, Jonas Krasch, and Jianyu Fan for their contributions. 
 
 
