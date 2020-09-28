@@ -1,4 +1,4 @@
-# MASOM v2.0.2
+# MASOM v2
 Musical Agent based on Self-Organizing Maps v2.0.2
 by Kıvanç Tatar
 
