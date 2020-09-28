@@ -1,5 +1,5 @@
 # MASOM v2
-Musical Agent based on Self-Organizing Maps v2.0.2
+Musical Agent based on Self-Organizing Maps v2
 by Kıvanç Tatar
 
 For questions, contact ktatar@sfu.ca.
