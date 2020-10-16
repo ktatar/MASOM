@@ -42,3 +42,10 @@ Below, all message-labels and expected contents are listed. Bold phrases are mes
     - 4: Beat-reverb 2
     - 5: 264 reverb
 
+## Audio Routing from Max to NEOSVR
+
+You can use virtual cable:
+https://vb-audio.com/Cable/index.htm
+
+Download and install the virtual cable. Set the Max audio output to CABLE, and NEOSVR mic input to CABLE. If you would like to mix multiple audio sources before sending the audio to NEOSVR mic input, you can use voicemeter banana:
+https://vb-audio.com/Voicemeeter/banana.htm
