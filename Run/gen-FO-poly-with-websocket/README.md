@@ -41,7 +41,7 @@ Below, all message-labels and expected contents are listed. Bold phrases are mes
     - 3: Beat-reverb 1
     - 4: Beat-reverb 2
     - 5: 264 reverb
--**reverb-vst-preset** expects a string that is the preset name. The preset should be in the same folder with the RUN.maxpat file. You can use the "write" message box next to the vst object in the patch to save a preset. The preset is saved with an .fxp extension, such as "my_preset.fxp". To call this preset from a websocket message, the message would be `reverb-vst-preset my_preset`. Note that the .fxp extension is omitted. 
+- **reverb-vst-preset** expects a string that is the preset name. The preset should be in the same folder with the RUN.maxpat file. You can use the "write" message box next to the vst object in the patch to save a preset. The preset is saved with an .fxp extension, such as "my_preset.fxp". To call this preset from a websocket message, the message would be `reverb-vst-preset my_preset`. Note that the .fxp extension is omitted. 
 
 ## Audio Routing from Max to NEOSVR
 
