@@ -23,7 +23,7 @@ Install the following packages from the links below:
 
 - Download this repo. 
 
-Go to the Max 8 menu -> Options -> File preferences. Using the plus button and then pressing the choose button; add the abstractions folder in this repo, and the folder of sadam library is in your MAX file path list.   
+Go to the Max 8 menu -> Options -> File preferences. Using the plus button and then pressing the choose button; add the abstractions folder of this repo, and make sure it appears in your MAX file path list.   
 
 Restart your Max after you install all libraries and adding the path of the abstractions folder in this repo to the file preferences in Max.
 
