@@ -1,13 +1,15 @@
 # MASOM v2
 Musical Agent based on Self-Organizing Maps v2
-
 by Kıvanç Tatar
 
-For questions, contact ktatar@sfu.ca.
+```diff
+-This project is concluded, and this repo is not updated anymore. Please check out the following repo instead:
+```
+## https://github.com/ktatar/mlaudiosalad
 
-This is a whole new version of MASOM. Hurray ╰(▔∀▔)╯
+For questions, contact contact@kivanctatar.com 
 
-In this version, you can separate the samples or audio excerpts that MASOM plays from the recordings that MASOM learns the musical structure. This version is incompatible with the previous versions of MASOM.
+
 
 Install following MAX packages from the package manager:
 
